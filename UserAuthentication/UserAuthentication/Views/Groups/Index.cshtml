@@ -1,0 +1,51 @@
+﻿@model IEnumerable<UserAuthentication.Models.Group>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Fac.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GroupID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Semester)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Year)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fac.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GroupID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Semester)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Year)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.GroupID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.GroupID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.GroupID })
+        </td>
+    </tr>
+}
+
+</table>

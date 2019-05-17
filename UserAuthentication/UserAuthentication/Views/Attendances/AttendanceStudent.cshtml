@@ -1,0 +1,96 @@
+﻿@*@model UserAuthentication.Models.Attendance*@
+@model IEnumerable<UserAuthentication.Models.Student>
+
+@{
+    /**/
+
+    ViewBag.Title = "AttendanceStudent";
+
+}
+@{
+    var students = (List<UserAuthentication.Models.Student>)ViewData["Student"]; // Cast the list
+}
+@{
+    List<SelectListItem> listItems = new List<SelectListItem>();
+    listItems.Add(new SelectListItem
+    {
+        Text = "Present",
+        Value = "Present"
+    });
+    listItems.Add(new SelectListItem
+    {
+        Text = "Absent",
+        Value = "Absent",
+        //Selected = true
+    });
+    listItems.Add(new SelectListItem
+    {
+        Text = "Late",
+        Value = "Late"
+    });
+}
+
+
+<h2>AttendanceStudent</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    @Html.TextBox("AttendanceDate", null, new { @class = "form-control", @type = "Date" })
+    <table class="table">
+        <tr>
+            <th>
+                Student ID
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                Status
+            </th>
+
+        </tr>
+
+        @foreach (UserAuthentication.Models.Student item in (ViewBag.Model as List<UserAuthentication.Models.Student>))
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentID)
+                @*@Html.TextBox(item.StudentID+"Textbox", null, new { @class = "form-control", @type = "hidden",@Value=})*@
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+
+
+
+            <td>
+                <div class="form-group">
+
+                    <div class="col-md-10">
+                        @Html.DropDownList(item.StudentID, listItems, "--Select Item--")
+
+                    </div>
+                </div>
+            </td>
+
+        </tr>
+
+        }
+    </table>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Submit" class="btn btn-default" />
+        </div>
+    </div>
+
+}
+

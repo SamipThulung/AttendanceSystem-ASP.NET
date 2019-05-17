@@ -1,0 +1,66 @@
+﻿@model IEnumerable<UserAuthentication.Models.Attendance>
+@{
+    ViewBag.Title = "IndividualStudentWeekly";
+}
+
+<h2>IndividualStudentWeekly</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            @Html.TextBox("DatePicker11", null, new { @class = "form-control", @type = "Date" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" name="submitButton" value="Record" class="btn btn-default" id="submitButton" />
+         
+
+
+        </div>
+    </div>
+
+}
+<table class="table">
+    <tr>
+        <th>
+            Course ID
+        </th>
+        <th>
+            Title
+        </th>
+        <th>
+            Attendance Date
+        </th>
+        <th>
+            Status
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AttendanceDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,97 @@
+﻿@model IEnumerable<UserAuthentication.Models.Attendance>
+
+@{
+    /**/
+
+    ViewBag.Title = "Index";
+}
+
+<h2>Attendances</h2>
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+
+@using (Html.BeginForm())
+{
+    <br />
+    @Html.AntiForgeryToken()
+    <h5 style="margin-left:15px;">Pick Date and click Filter to view attendance record</h5>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            @Html.TextBox("AttendanceDate", null, new { @class = "form-control", @type = "Date" })
+        </div>
+    </div>
+    <br />
+    <h5 style="margin-left: 15px;">Select Course and click Record to perform attendance</h5>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            @Html.DropDownList("ScheduleID", null, htmlAttributes: new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" name="submitButton" value="Record" class="btn btn-default" id="submitButton" />
+            <input type="submit" name="submitButton" value="Filter" class="btn btn-primary" id="submitButton" />
+        </div>
+    </div>
+
+}
+
+
+
+<table class="table">
+    <tr>
+        @*<th>
+                @Html.DisplayNameFor(model => model.course.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.schedule.CourseID)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.AttendanceDate)
+            </th>*@
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.course.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.schedule.CourseID)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.AttendanceDate)
+                </td>*@
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.AttendanceID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.AttendanceID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.AttendanceID })
+            </td>
+        </tr>
+    }
+
+</table>

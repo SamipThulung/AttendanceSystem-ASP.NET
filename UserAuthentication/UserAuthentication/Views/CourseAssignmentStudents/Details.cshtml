@@ -1,0 +1,42 @@
+﻿@model UserAuthentication.Models.CourseAssignmentStudent
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CourseAssignmentStudent</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.assignment.CourseID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.assignment.CourseID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.course.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.course.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalMarks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalMarks)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,41 @@
+﻿@model Dictionary<string, string>
+@{
+    ViewBag.Title = "ChangeUserDetail";
+    Dictionary<string,string> dic = ViewBag.dic;
+}
+
+<h2>ChangeUserDetail</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+    <div class="form-group">
+        @Html.Label("Username", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="text" id="UserName" name="UserName" value="@dic["UserName"].ToString()">
+         
+
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Email", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="text" id="Email" name="Email" value="@dic["Email"].ToString()">
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label(dic["UserName"].ToString(), htmlAttributes: new { @class = "control-label col-md-2", @value = dic["UserName"].ToString() })
+        <div class="col-md-10">
+            @Html.DropDownList("selectedRoles", ViewBag.selectedRoles as SelectList, @dic["Role"].ToString())
+          
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Submit" class="btn btn-default" />
+        </div>
+    </div>
+
+}

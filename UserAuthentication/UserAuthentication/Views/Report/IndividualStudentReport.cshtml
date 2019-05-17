@@ -1,0 +1,24 @@
+﻿@model UserAuthentication.Models.Attendance
+@{
+    ViewBag.Title = "IndividualStudentReport";
+}
+
+<h2>IndividualStudentReport</h2>
+
+<table class="table">
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Title</th>
+        <th>Course ID</th>
+        <th>Status</th>
+        
+    </tr>
+    <tr>
+        <td>@Model.FirstName</td>
+        <td>@Model.LastName</td>
+        <td>@Model.Title</td>
+        <td>@Model.CourseID</td>
+        <td>@Model.Status</td>
+    </tr>
+</table>

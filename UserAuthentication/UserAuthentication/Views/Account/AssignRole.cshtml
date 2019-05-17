@@ -1,0 +1,34 @@
+﻿@model UserAuthentication.Models.ApplicationUser
+@{
+    ViewBag.Title = "AssignRole";
+}
+
+<h2>AssignRole</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+
+    <div class="form-group">
+        Select UserName:
+        <div class="col-md-10">
+            @Html.DropDownList("listItems1", ViewBag.listItem1 as SelectList)
+
+        </div>
+    </div>
+    <div class="form-group">
+        Select Roles:
+        <div class="col-md-10">
+            @Html.DropDownList("listItems", ViewBag.listItems as SelectList)
+
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Submit" class="btn btn-default" />
+        </div>
+    </div>
+
+}

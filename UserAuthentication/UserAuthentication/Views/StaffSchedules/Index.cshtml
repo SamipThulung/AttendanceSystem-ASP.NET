@@ -1,0 +1,43 @@
+﻿@model IEnumerable<UserAuthentication.Models.StaffSchedule>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.course.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.schedule.CourseID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.staff.FirstName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.course.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.schedule.CourseID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.staff.FirstName)
+        </td>
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

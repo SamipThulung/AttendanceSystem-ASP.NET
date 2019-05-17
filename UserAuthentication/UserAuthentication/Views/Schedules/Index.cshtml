@@ -1,0 +1,63 @@
+﻿@model IEnumerable<UserAuthentication.Models.Schedule>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+           Course 
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Classroom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ClassType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Day)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndTime)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CourseTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Classroom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClassType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Day)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndTime)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ScheduleID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ScheduleID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ScheduleID })
+        </td>
+    </tr>
+}
+
+</table>

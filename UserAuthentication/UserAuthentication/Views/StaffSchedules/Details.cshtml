@@ -1,0 +1,42 @@
+﻿@model UserAuthentication.Models.StaffSchedule
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>StaffSchedule</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.course.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.course.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.schedule.CourseID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.schedule.CourseID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.staff.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.staff.FirstName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<UserAuthentication.Models.ScheduleGroup>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ScheduleID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GroupID)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ScheduleID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GroupID)
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new {  sch_id=item.ScheduleID,g_id=item.GroupID})
+            </td>
+        </tr>
+    }
+
+</table>

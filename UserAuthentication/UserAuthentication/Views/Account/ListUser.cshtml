@@ -1,0 +1,30 @@
+﻿@model IEnumerable<List<Dictionary<string,string>>>
+@{
+    ViewBag.Title = "ListUser";
+}
+
+<h2>ListUser</h2>
+
+<table class="table">
+    <tr>
+        <th>User name</th>
+        <th>Email</th>
+        <th>Role</th>
+    </tr>
+
+    @foreach (var item in (ViewBag.list as List<Dictionary<string, string>>))
+    {
+    <tr>
+        <td>@Html.DisplayFor(modelItem => item["UserName"])</td>
+        <td>@Html.DisplayFor(modelItem => item["Email"])</td>
+        <td>@Html.DisplayFor(modelItem => item["Name"])</td>
+        <td>
+            @Html.ActionLink("Edit", "ChangeUserDetail", new { id = item["Id"], roles_id = item["r_id"] })
+            @Html.ActionLink("Delete", "DeleteUser", new { id = item["Id"], roles_id = item["r_id"] })
+        </td>
+    </tr>
+  
+        
+   
+    }
+</table>

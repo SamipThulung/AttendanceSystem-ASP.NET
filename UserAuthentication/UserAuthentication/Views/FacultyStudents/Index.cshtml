@@ -1,0 +1,38 @@
+﻿@model IEnumerable<UserAuthentication.Models.FacultyStudent>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Enroll student</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FacultyID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FacultyID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudentID)
+        </td>
+        <td>
+           
+            @Html.ActionLink("Delete", "Delete", new { Faculty_id=item.FacultyID, Student_id = item.StudentID })
+        </td>
+    </tr>
+}
+
+</table>

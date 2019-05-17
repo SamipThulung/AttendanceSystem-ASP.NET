@@ -1,0 +1,37 @@
+﻿@model UserAuthentication.Models.CourseStaff
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>CourseStaff</h4>
+    <hr />
+    <dl class="dl-horizontal">
+       
+
+        <dt>
+            @Html.DisplayFor(modelItem => Model.StaffID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(modelItem => Model.CourseID)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        @Html.HiddenFor(model => Model.StaffID)
+        @Html.HiddenFor(model => Model.CourseID)
+
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+    }
+</div>
